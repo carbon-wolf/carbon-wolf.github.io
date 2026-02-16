@@ -4,9 +4,36 @@
   
   
   <entry>
+    <title>Hexo Fluid 主题下实现日夜模式 Banner 图片切换</title>
+    <link href="/posts/5665d9c4/"/>
+    <url>/posts/5665d9c4/</url>
+    
+    <content type="html"><![CDATA[<p>在使用 Hexo 的 Fluid 主题时，我参考了<a href="https://4rozen.github.io/posts/60191.html">这篇文章</a>来实现<strong>日夜模式切换 Banner 图片</strong></p><p>原方案思路是对的，也能跑通，但在实际使用中我遇到了两个<strong>明显痛点</strong>：</p><ol><li><strong>首页默认被排除，无法切换 Banner 图片</strong></li><li><strong>直接删除遮罩（mask）后，视觉效果很丑</strong></li></ol><p>本文记录我针对这两个问题的解决方案，供同样使用 Fluid 主题的朋友参考。</p><h2 id="一、原方案的问题分析"><a href="#一、原方案的问题分析" class="headerlink" title="一、原方案的问题分析"></a>一、原方案的问题分析</h2><h3 id="问题-1：首页不支持切换-Banner"><a href="#问题-1：首页不支持切换-Banner" class="headerlink" title="问题 1：首页不支持切换 Banner"></a>问题 1：首页不支持切换 Banner</h3><p>原文中通过一个 <code>isExcludedPage</code> 方法来判断是否启用日夜切换逻辑</p><p>而在默认逻辑里，<strong>首页 <code>/</code>是被排除的</strong>，也就是说首页不执行切换</p><p>这对我来说是不可接受的，因为首页 Banner 恰恰是最需要日夜区分的地方。</p><h3 id="问题-2：直接移除遮罩，画面观感很差"><a href="#问题-2：直接移除遮罩，画面观感很差" class="headerlink" title="问题 2：直接移除遮罩，画面观感很差"></a>问题 2：直接移除遮罩，画面观感很差</h3><p>原方案中对 Banner 遮罩的处理方式是直接将遮罩透明化</p><p>这样做的结果是：</p><ul><li><p>图片亮度失控</p></li><li><p>字体对比度不足</p></li><li><p>页面“素”得很明显</p></li></ul><p><strong>遮罩不该被移除，而应该被“设计”</strong></p><h2 id="二、问题一的解决：让首页参与日夜切换"><a href="#二、问题一的解决：让首页参与日夜切换" class="headerlink" title="二、问题一的解决：让首页参与日夜切换"></a>二、问题一的解决：让首页参与日夜切换</h2><p>对<code>backgroundize.js</code>的<code>isExcludedPage</code>方法做小修改：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">isExcludedPage</span> = (<span class="hljs-params">path</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (path === <span class="hljs-string">&quot;/&quot;</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// true改为false启用首页切换</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-variable constant_">PAGE_EXCLUSIONS</span>.<span class="hljs-title function_">some</span>(<span class="hljs-function">(<span class="hljs-params">excluded</span>) =&gt;</span> path.<span class="hljs-title function_">startsWith</span>(excluded));<br>&#125;;<br></code></pre></td></tr></table></figure><h3 id="修改效果"><a href="#修改效果" class="headerlink" title="修改效果"></a>修改效果</h3><table><thead><tr><th>页面</th><th>是否参与日夜切换</th></tr></thead><tbody><tr><td>首页</td><td>✅</td></tr><tr><td>文章页</td><td>✅</td></tr><tr><td>排除页</td><td>❌</td></tr></tbody></table><h2 id="三、问题二的解决：用渐变遮罩代替“删除遮罩”"><a href="#三、问题二的解决：用渐变遮罩代替“删除遮罩”" class="headerlink" title="三、问题二的解决：用渐变遮罩代替“删除遮罩”"></a>三、问题二的解决：用渐变遮罩代替“删除遮罩”</h2><p>相比 CSS 覆盖，我选择了 直接用 <code>JavaScript</code> 接管遮罩层样式，这是目前在 Fluid 中最稳定的方案。</p><p>核心思路是将纯色遮罩改为渐变透明遮罩</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">removeBannerMask</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-keyword">const</span> mask = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#banner .mask&quot;</span>);<br>  <span class="hljs-keyword">if</span> (!mask) <span class="hljs-keyword">return</span>;<br><br>  mask.<span class="hljs-property">style</span>.<span class="hljs-property">background</span> = <span class="hljs-string">`</span><br><span class="hljs-string">    linear-gradient(</span><br><span class="hljs-string">      to bottom,</span><br><span class="hljs-string">      rgba(0, 0, 0, 0.6) 0%,</span><br><span class="hljs-string">      rgba(0, 0, 0, 0.35) 40%,</span><br><span class="hljs-string">      rgba(0, 0, 0, 0.15) 70%,</span><br><span class="hljs-string">      rgba(0, 0, 0, 0) 100%</span><br><span class="hljs-string">    )</span><br><span class="hljs-string">  `</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>Fluid</tag>
+      
+      <tag>前端</tag>
+      
+      <tag>日夜模式</tag>
+      
+      <tag>JavaScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>林泽凯的小站-正在建设中</title>
-    <link href="/posts/undefined/"/>
-    <url>/posts/undefined/</url>
+    <link href="/posts/332d3c8b/"/>
+    <url>/posts/332d3c8b/</url>
     
     <content type="html"><![CDATA[]]></content>
     
