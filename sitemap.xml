@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.linzekai.cn/novel/A/ch-1.html</loc>
+    
+    <lastmod>2026-02-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.linzekai.cn/novel/A/index.html</loc>
     
     <lastmod>2026-02-17</lastmod>
@@ -11,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://www.linzekai.cn/novel/index.html</loc>
+    <loc>http://www.linzekai.cn/novel/A/ch-2.html</loc>
     
     <lastmod>2026-02-17</lastmod>
     
@@ -20,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://www.linzekai.cn/novel/A/ch-1.html</loc>
+    <loc>http://www.linzekai.cn/novel/index.html</loc>
     
     <lastmod>2026-02-17</lastmod>
     
