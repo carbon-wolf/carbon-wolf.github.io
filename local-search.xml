@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>从wordpress到hexo</title>
+    <link href="/posts/8f8c4cfa/"/>
+    <url>/posts/8f8c4cfa/</url>
+    
+    <content type="html"><![CDATA[<p>我第一次搭博客，用的是 WordPress。</p><p>原因现在想起来其实挺好笑的。那时候还是初中生，就喜欢那种立刻能看到效果的东西。装个主题，刷新一下页面，一个“看起来很炫酷的网站”就出来了，反馈来得特别快，快到我甚至没想过后台是什么、代码怎么写，就觉得自己已经是个“会搭网站的人”了。</p><p>但这股热情也没撑多久。文章写了两篇，一篇是“Hello World”，一篇是“我的第一篇博客”。然后，就没有然后了。三分钟热度一过，就再也没打开过后台。回头看，会觉得这事本身就挺 WordPress 的——东西来得太容易，也就走得很快。</p><p>真正的转折点，其实挺狼狈的，是某天我突然发现网站被黑了。数据被删得干干净净，也是在那一刻我第一次认真地想：如果我只是想写点东西，真的有必要这么复杂吗？</p><p>后来接触到 Hexo，没有后台，写作就是 Markdown。那种感觉很微妙，更像是在写作，而不是在维护一个系统。</p><p>可控、干净，所有东西都在我的掌控范围内。至于是不是和我master属性有关，那便不得而知了。<br>当然，也完全不是因为便宜，对吧。</p><p>Hexo 当然也不省心。主题结构复杂，很多功能要自己拼，文档有时候也不太友好。但奇怪的是，我并不讨厌这些折腾。因为我很清楚自己在干嘛，想把这个地方一点点改成我愿意长期用下去的样子。</p><p>现在回头看，我反而会把 Hexo 推荐给很多人。简单模板对个人博客来说已经完全够用了，如果你愿意折腾，它也不会限制你重来造轮子。</p><p>从 WordPress 换到 Hexo，对我来说其实不是什么技术升级。只是慢慢意识到一件事：<br>功能越少，我反而越容易坚持下去。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>个人思考</tag>
+      
+      <tag>wordpress</tag>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Vercel 部署的 Twikoo 对接自定义 Chevereto V4 图床</title>
     <link href="/posts/db3e042c/"/>
     <url>/posts/db3e042c/</url>
@@ -14,9 +37,11 @@
     
     <tags>
       
-      <tag>Fluid</tag>
+      <tag>教程</tag>
       
       <tag>Twikoo</tag>
+      
+      <tag>Fluid</tag>
       
       <tag>Chevereto</tag>
       
@@ -41,9 +66,9 @@
       
       <tag>教程</tag>
       
-      <tag>Fluid</tag>
-      
       <tag>Twikoo</tag>
+      
+      <tag>Fluid</tag>
       
     </tags>
     
