@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>让 Hexo Fluid 友链页每次刷新都随机排序</title>
+    <link href="/posts/a12b31b0/"/>
+    <url>/posts/a12b31b0/</url>
+    
+    <content type="html"><![CDATA[<p>友链页每次打开都是同样的顺序，排在前面的朋友曝光率永远最高，排在后面的则几乎不会被注意到。于是我决定给友链页加一点小小的随机性：<strong>每次刷新，卡片顺序都不一样</strong>。</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>Hexo 是静态博客，页面在 <code>hexo g</code> 时就已经生成好了，所以”随机”只能发生在浏览器端，也就是用 JavaScript 在页面加载后动态打乱卡片顺序。</p><h2 id="用-Fluid-的自定义-JS-注入"><a href="#用-Fluid-的自定义-JS-注入" class="headerlink" title="用 Fluid 的自定义 JS 注入"></a>用 Fluid 的自定义 JS 注入</h2><p>Fluid 提供了全局注入自定义 JS 文件的配置项。</p><p><strong>第一步</strong>，在 <code>source/js/</code> 目录下新建 <code>random-links.js</code>：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 只在友链页执行，避免影响其他页面</span><br>  <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.links&#x27;</span>)) <span class="hljs-keyword">return</span>;<br><br>  <span class="hljs-keyword">const</span> container = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.row.links&#x27;</span>);<br>  <span class="hljs-keyword">if</span> (!container) <span class="hljs-keyword">return</span>;<br><br>  <span class="hljs-keyword">const</span> cards = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(container.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;:scope &gt; .card&#x27;</span>));<br><br>  <span class="hljs-comment">// Fisher-Yates 洗牌算法</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = cards.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">0</span>; i--) &#123;<br>    <span class="hljs-keyword">const</span> j = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * (i + <span class="hljs-number">1</span>));<br>    container.<span class="hljs-title function_">insertBefore</span>(cards[j], cards[i]);<br>    [cards[i], cards[j]] = [cards[j], cards[i]];<br>  &#125;<br>&#125;);<br></code></pre></td></tr></table></figure><p>这里用的是经典的 Fisher-Yates 洗牌算法，时间复杂度 O(n)，每张卡片出现在任意位置的概率完全相等，比 <code>sort(() =&gt; Math.random() - 0.5)</code> 那种写法严谨得多。</p><p><strong>第二步</strong>，在 <code>_config.fluid.yml</code> 中注册这个文件：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">custom_js:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">/js/random-links.js</span><br></code></pre></td></tr></table></figure><p><strong>第三步</strong>，重新部署。</p><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>现在每次打开或刷新<a href="https://www.linzekai.cn/links">友链页</a>，卡片顺序都会重新洗牌，每个朋友的博客都有机会出现在第一位。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>Fluid</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>从wordpress到hexo</title>
     <link href="/posts/8f8c4cfa/"/>
     <url>/posts/8f8c4cfa/</url>
@@ -168,6 +189,8 @@
     <tags>
       
       <tag>教程</tag>
+      
+      <tag>Fluid</tag>
       
     </tags>
     

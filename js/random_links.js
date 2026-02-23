@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){if(!document.querySelector(".links"))return;const r=document.querySelector(".row.links");if(!r)return;const t=Array.from(r.querySelectorAll(":scope > .card"));for(let e=t.length-1;e>0;e--){const o=Math.floor(Math.random()*(e+1));r.insertBefore(t[o],t[e]);[t[e],t[o]]=[t[o],t[e]]}});
