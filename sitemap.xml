@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.linzekai.cn/novel/A/index.html</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.linzekai.cn/novel/A/ch-2.html</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.linzekai.cn/changelogs/index.html</loc>
+    
+    <lastmod>2026-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.linzekai.cn/talk/index.html</loc>
     
     <lastmod>2026-02-25</lastmod>
@@ -20,15 +47,6 @@
   </url>
   
   <url>
-    <loc>http://www.linzekai.cn/changelogs/index.html</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.linzekai.cn/fvngame/index.html</loc>
     
     <lastmod>2026-02-25</lastmod>
@@ -39,15 +57,6 @@
   
   <url>
     <loc>http://www.linzekai.cn/novel/A/ch-1.html</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.linzekai.cn/novel/A/index.html</loc>
     
     <lastmod>2026-02-25</lastmod>
     
@@ -192,6 +201,20 @@
   </url>
   
   <url>
+    <loc>http://www.linzekai.cn/tags/Chevereto/</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.linzekai.cn/tags/Vercel/</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.linzekai.cn/tags/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -221,20 +244,6 @@
   
   <url>
     <loc>http://www.linzekai.cn/tags/%E5%86%99%E4%BD%9C/</loc>
-    <lastmod>2026-02-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.linzekai.cn/tags/Chevereto/</loc>
-    <lastmod>2026-02-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.linzekai.cn/tags/Vercel/</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
