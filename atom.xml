@@ -5,9 +5,25 @@
     <link>http://www.linzekai.cn/</link>
     <language>zh-CN</language>
     <copyright>All rights reserved 2026, 林泽凯</copyright>
-    <lastBuildDate>Mon, 15 Jun 2026 05:36:51 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 14:59:46 GMT</lastBuildDate>
     <generator>Hexo</generator>
     <atom:link href="http://www.linzekai.cn/atom.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>兜兜转转归来还是wordpress</title>
+      <link>http://www.linzekai.cn/posts/699621e4/</link>
+      <description>
+        <![CDATA[<div class="note note-info">
+            <p>新网站预计在7月初上线</p>
+          </div>
+
+<p>虽然我写下的文字不多，但是我换的博客系统很多，写过的博客配置文件比我目前所有已发布文章的字数加起来多几倍。Hexo、H]]>
+      </description>
+      <author>林泽凯</author>
+      <pubDate>Sat, 20 Jun 2026 07:18:45 GMT</pubDate>
+      <content:encoded>
+        <![CDATA[<div class="note note-info">            <p>新网站预计在7月初上线</p>          </div><p>虽然我写下的文字不多，但是我换的博客系统很多，写过的博客配置文件比我目前所有已发布文章的字数加起来多几倍。Hexo、Hugo、Ghost、Typecho、wordpress…</p><p>最开始就是wordpress承载了我的文章，其次用的最久的是Hexo。成人之际，我又把博客系统换回了wordpress。首要理由当然是买得起服务器啦。</p><p>作为一个表现欲很强的人，自然是要为我的兽设打造一套适配他的主题，很高兴它现在已经初具雏形了，现已将主题开源，感兴趣的可以去仓库看看。</p><p>扯远了，总之，当下最适合我的系统是wordpress，即使它笨重、古老、被攻击者青睐，但它很省心，适合折腾劲已经消磨殆尽的我。至于主题，那是我给自己在高考后的空虚时光里找的填充物：把个性烙进代码里，然后开源，仅仅是为了逼自己把这件事做完，毕竟仓库都公开了，总不好只写一个README就逃跑。</p><p>折腾博客系统的那几年，我一直误以为自己在寻找“最适合写作的环境”，后来才明白，最适合写作的环境就是写完了还能接着写第二个的环境。 WordPress 够成熟，成熟到不再令我有探索的冲动，只剩下使用的惯性。当工具失去“可玩性”，写作才恢复“必要性”。</p><p>兜兜转转，归来仍是wordpress。</p>]]>
+      </content:encoded>
+    </item>
     <item>
       <title>高考后</title>
       <link>http://www.linzekai.cn/posts/3be9e641/</link>
